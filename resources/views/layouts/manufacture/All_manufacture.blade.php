@@ -1,0 +1,82 @@
+@extends('Admin.layouts.admin_master')
+
+@section('content')
+    <section class="container">
+
+        @if(Session::has('message'))
+            <div class="alert alert-success col-md-3 " >
+                {{Session::get('message')}}.
+            </div>
+        @endif
+        <div align="right" class="table-hover">
+            <a href="{{route('side_admin.add_manufactures')}}"><h1 class="btn btn-primary table-hover">Add Manufacture</h1></a>
+            <hr>
+        </div>
+
+        <div class="container-fluid">
+            <div class="col-md-12 table-responsive">
+                <table class="table  table-bordered table-dark table-hover">
+                    <thead>
+                    <tr align="center" class="bg-success">
+                        <th>SL</th>
+                        <th>Manufacture Name</th>
+                        <th style="width: 430px;">Description</th>
+                        <th>Publication Status</th>
+                        <th>Action</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php
+                    $SL = 0;
+                    ?>
+                    @foreach($manufature_add as $manufatureData)
+                        <tr>
+                            <td>{{++$SL}}</td>
+                            <td>{{ $manufatureData->manufactures_name }}</td>
+                            <td>{{$manufatureData->description}}</td>
+
+                                        {{--active or unactive--}}
+                            <td align="center">
+                                @if($manufatureData->publication_status ==1)
+                                    <span class="btn btn-success">Actived</span>
+                                @else
+                                    <a onclick="return confirm('Are you sure..! you want to Active this item?')" class="btn btn-danger" href="{{route('all_manu.active_manufacture', $manufatureData->manufactures_id)}}"> Un active</a>
+                                @endif
+                            </td>
+
+                            <td align="center">
+                                @if($manufatureData->publication_status ==1)
+                                    <a onclick="return confirm('Are you sure..! you want to unactive this item?')" href="{{route('all_manu.unactive_manufacture',$manufatureData->manufactures_id)}}" class="btn btn-danger fa fa-thumbs-down"></a>
+                                @else
+                                    <i class="btn btn-success fa fa-thumbs-up"></i>
+                                @endif
+                                                {{--update--}}
+
+                                    <a href="{{route('all_manu.manu_update',$manufatureData->manufactures_id)}}" class="btn btn-primary"><i class="fa fa-pencil"></i></a>
+
+                                                {{--Delete--}}
+
+                                    <a onclick="return confirm('Are you sure..! you want to delete this item?')" href="{{route('all_manu.manu_delete',$manufatureData->manufactures_id)}}" class="btn btn-danger fa fa-trash"></a>
+                            </td>
+
+
+                        </tr>
+
+
+                    @endforeach
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+
+
+
+    </section>
+
+
+@endsection

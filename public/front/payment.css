@@ -1,0 +1,68 @@
+
+#paypal img {
+    margin-left: 5px;
+    height: 100px;
+    width:130px;
+}
+#paypal img:hover{
+    background-color:grey;
+}
+
+
+#bkash img{
+
+    height: 100px;
+    width: 140px;
+    float: right;
+    margin-top: -115px;
+    margin-right:550px;
+}
+#bkash img:hover{
+    background-color:grey;
+}
+
+#nexuspay img{
+    height: 100px;
+    width: 130px;
+    float: right;
+    margin-top: -115px;
+    margin-right:360px;
+}
+#nexuspay img:hover{
+    background-color:grey;
+}
+
+#rocket img{
+    height: 100px;
+    width: 130px;
+    float: right;
+    margin-top: -115px;
+    margin-right:170px;
+
+}
+
+#radio{
+    height: 100px;
+    width: 130px;
+    float: right;
+    margin-top: -115px;
+    margin-right:170px;
+
+}
+
+#rocket img:hover{
+    background-color:grey;
+}
+
+#visa img{
+    height: 100px;
+    width: 130px;
+    float: right;
+    margin-top: -115px;
+    margin-right:-19px;
+}
+
+#visa img:hover{
+    background-color:grey;
+}
+
